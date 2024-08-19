@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${poll.question}">Poll</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="card mt-4 bg-light">
+			<div class="card-body">
+
+				<h2 class="card-title mb-4" style="color: blue"
+					th:text=${poll.question}></h2>
+				<form th:action="@{/vote}" method="post">
+					<input type="hidden" name="pollId" th:value="${poll.id}">
+					<div class="form-group">
+						<label for="options">Options:</label> <select id="options"
+							name="optionId" class="form-control">
+							<option th:each="option: ${poll.optionList}"
+								th:value="${option.id}" th:text="${option.choice_text}"></option>
+
+						</select>
+						
+					</div>
+					<button type="submit" class="btn btn-primary">Vote</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.botstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

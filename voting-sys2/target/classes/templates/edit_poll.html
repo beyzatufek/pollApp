@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Poll</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+
+	<h1>Poll Update</h1>
+
+	<!-- Form başlangıcı -->
+
+	!-- Anket Başlığı -->
+	<div class="card-body">
+		<form th:action="@{/poll/{id}(id=${poll.id})}" method="post">
+			<div class="form-group">
+
+				<!-- Seçenekler -->
+
+
+				
+					<input type="text" name="choice_text"
+						placeholder="New Answer Option" />
+					<button type="submit">Add Answer</button>
+				</form>
+
+
+
+				<ul>
+					<li th:each="answer : ${poll.optionList}"><span
+						th:text="${choice_text}"></span></li>
+				</ul>
+		
+
+	<!-- Yeni Seçenek Ekleme Butonu -->
+	<button type="button" onclick="addOption()">Add new Option</button>
+
+	<!-- Form Gönderme Butonu -->
+	<button type="submit">Güncelle</button>
+	<!-- <div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Update Student </h1>
+				<div class = "card-body">
+					<form th:action="@{/poll/{id} (id=${poll.id})}" th:object = "${poll}" method="POST">
+						<div class ="form-group">
+							<label> Question </label>
+							<input
+							type = "text"
+							name = "question"
+							th:field = "*{question}"
+							class = "form-control"
+							placeholder="Enter question" 
+							/>
+						</div>
+						<div class="form-group row">
+						<label for="choices" class="col-sm-2 col-form-label" >Options</label>
+						<input
+							type = "text"
+							name = "choice_text"
+							th:field = "*{choice_text}"
+							class = "form-control"
+							placeholder="Enter choice" 
+							/>
+						<div id="optionsContainer"><input type="text" name="choices" class="form-control" required ></div>
+						</div>
+						
+						<div class ="form-group">
+							<label> Choice </label>
+							<input
+							type = "text"
+							name = "choices"
+							th:field = "*{choice}"
+							class = "form-control"
+							placeholder="Enter choice" 
+							/>
+						</div>
+						
+							<div class ="form-group">
+							<label> Choice </label>
+							<input
+							type = "text"
+							name = "choices"
+							th:field = "*{choice}"
+							class = "form-control"
+							placeholder="Enter choice" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.botstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ -->
+
+	</div>
+		</form>
+	</div>
+
+</body>
+</html>
